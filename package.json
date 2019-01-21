@@ -7,19 +7,22 @@
   "files": [
     "dist"
   ],
-  "scripts": {
-    "start": "webpack-dev-server --config webpack.config.dev.js --inline --hot --progress --mode development",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:esm": "rollup -c -f esm -o dist/likert.esm.js",
-    "build:umd": "rollup -c -f umd -g react:React -o dist/likert.umd.js",
-    "build": "npm run build:esm && npm run build:umd",
-    "prepare": "npm run build"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Craig-Creeger/react-likert-scale"
   },
   "keywords": [
     "Likert"
   ],
   "author": "Craig Creeger",
   "license": "ISC",
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.config.dev.js --inline --hot --progress --mode development",
+    "build:esm": "rollup -c -f esm -o dist/likert.esm.js",
+    "build:umd": "rollup -c -f umd -g react:React -o dist/likert.umd.js",
+    "build": "npm run build:esm && npm run build:umd",
+    "prepare": "npm run build"
+  },
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
