@@ -1,0 +1,68 @@
+.likertScale {
+	margin-bottom: 1em;
+}
+.likertBand {
+  display: flex;
+  padding-top: 1em;
+}
+.likertResponse {
+  flex: 1 1 5em;
+  text-align: center;
+  position: relative;
+}
+.likertLine {
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
+  margin-top: 0.5em;
+  border-top: 3px solid dimgray;
+}
+.likertResponse:first-child .likertLine:first-child {
+  visibility: hidden;
+}
+.likertResponse:last-child>.likertLine:nth-child(2) {
+  visibility: hidden;
+}
+.likertIndicator {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border-radius: 0.5em;
+  border: thin solid #870230;
+  background-color: #ffed79;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  box-sizing: border-box;
+}
+.likertResponse:hover .likertIndicator {
+  background-color: white;
+  border-width: 3px;
+}
+.likertText {
+  display: inline-block;
+  padding-top: 0.4em;
+}
+.likertScale.isKeyboardUser .likertResponse > input:focus ~ .likertText {
+  /* This rule is for accessibility. Keyboard users will get a blue shadow around the text when
+     tabbed into the Likert scale. */
+  box-shadow: 0 0 5px 2px rgba(0, 119, 195, 0.5);
+}
+.likertResponse>input:checked+.likertIndicator {
+  background-color: #870230;
+}
+.visuallyHidden { 
+  position: absolute; 
+  overflow: hidden; 
+  clip: rect(0 0 0 0); 
+  height: 1px; width: 1px; 
+  margin: -1px; padding: 0; border: 0; 
+}
+
+@media only print {
+  .likertResponse>input:checked+.likertIndicator {
+    border-width: 0.5em !important;
+    border-color: black !important;
+  }
+}

@@ -1,0 +1,11 @@
+# http://EditorConfig.org
+
+root=true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+indent_style = tab
+
+[*.{md,json}]
+indent_style = space
