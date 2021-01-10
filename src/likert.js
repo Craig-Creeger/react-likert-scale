@@ -17,7 +17,7 @@ class LikertScale extends React.Component {
 		document.removeEventListener('keydown', this.listenForTab);
 	}
 	render () {
-		const { question, responses } = this.props;
+		const { question, responses, fieldsetId } = this.props;
 		const sha = String(SHA1(question)).substring(0, 7);
 		const radios = responses.map((response, idx) => {
 			const uniqueKey = `${sha}${idx}`;
@@ -41,6 +41,7 @@ class LikertScale extends React.Component {
 
 		return (
 			<fieldset
+				id={fieldsetId || Math.random().toString(36).substr(2)}
 				className={`likertScale${
 					this.state.isKeyboardUser ? ' isKeyboardUser' : ''
 				}`}>
