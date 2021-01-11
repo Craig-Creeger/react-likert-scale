@@ -28,8 +28,8 @@
   width: 1em;
   height: 1em;
   border-radius: 0.5em;
-  border: thin solid #870230;
-  background-color: #ffed79;
+  border: thin solid #006fc4;
+  background-color: #faeabd;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -50,7 +50,7 @@
   box-shadow: 0 0 5px 2px rgba(0, 119, 195, 0.5);
 }
 .likertResponse>input:checked+.likertIndicator {
-  background-color: #870230;
+  background-color: #006fc4;
 }
 .visuallyHidden { 
   position: absolute; 
