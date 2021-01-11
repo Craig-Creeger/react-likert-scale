@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import classNames from 'classnames';
 import SHA1 from 'crypto-js/sha1'
 
 import './likert.css'
 
-function LikertScale ({ question, responses, picked, id, ...restProps }, ref) {
+function LikertScale({ question, responses, picked, id, className = '', ...restProps }, ref) {
 	const [isKeyboardUser, setIsKeyboardUser] = useState(false)
 
 	const listenForTab = evt => {
@@ -46,9 +47,13 @@ function LikertScale ({ question, responses, picked, id, ...restProps }, ref) {
 		)
 	})
 
+	const cn = classNames('likertScale', className, {
+		isKeyboardUser
+	})
+
 	return (
 		<fieldset
-			className={`likertScale ${isKeyboardUser ? 'isKeyboardUser' : ''}`}
+			className={cn}
 			ref={ref}
 			id={id || sha}
 			{...restProps}

@@ -1,5 +1,5 @@
 {
-  "plugins": ["react"],
+  "plugins": ["react", "react-hooks"],
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "env": {
     "browser": true,
@@ -11,14 +11,18 @@
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
     "jsx-quotes": ["error", "prefer-single"],
-    "react/prop-types": "off",
-    "space-before-function-paren": ["error", "always"]
+    "react/prop-types": "off"
   },
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true,
       "modules": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // React version. "detect" automatically picks the version you have installed.
     }
   }
 }

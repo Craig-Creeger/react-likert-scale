@@ -26,7 +26,13 @@ function PreviewComponent () {
 	})
 
 	return (
-		<Likert {...likertOptions} ref={refLikert} id='steckerlfisch' />
+		<Likert {...likertOptions}
+			ref={refLikert}
+			id='steckerlfisch'
+			// eslint-disable-next-line no-console
+			onClick={() => console.log('pretzels')}
+			className='donuts'
+		/>
 	)
 }
 
