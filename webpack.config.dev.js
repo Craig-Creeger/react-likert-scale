@@ -1,5 +1,4 @@
 var path = require('path');
-var webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const isDevBuild = process.env.NODE_ENV !== 'production';
@@ -9,13 +8,12 @@ module.exports = {
 	mode: isDevBuild ? 'development' : 'production',
 
 	// Context is the path for resolving `entry`, loaders, and other files in this config file.
-	context: path.join(__dirname, 'src'),
+	context: path.join(process.cwd(), 'src'),
 
 	entry: 'preview.js',
 	output: {
-		path: path.join(__dirname, 'dist'),
+		path: path.join(process.cwd(), 'dist'),
 		filename: 'preview.bundle.js',
-		libraryTarget: 'var' // when no 'library' is specified then it acts as IIFE
 	},
 	devtool: isDevBuild ? 'eval-source-map' : 'source-map',
 	resolve: {
@@ -36,7 +34,6 @@ module.exports = {
 		const plugins = [];
 
 		if (isDevBuild) {
-			plugins.push(new webpack.NamedModulesPlugin()); // Causes the relative path of the module to be displayed when HMR is enabled.
 			plugins.push(new HtmlWebpackPlugin());
 		}
 
@@ -53,7 +50,7 @@ module.exports = {
 			// 			loader: require.resolve('eslint-loader')
 			// 		}
 			// 	],
-			// 	include: [path.resolve(__dirname, 'src')]
+			// 	include: [path.resolve(process.cwd(), 'src')]
 			// },
 
 			{
@@ -73,7 +70,7 @@ module.exports = {
 			},
 			{
 				test: /\.jsx?$/,
-				include: [path.resolve(__dirname, 'src')],
+				include: [path.resolve(process.cwd(), 'src')],
 				loader: require.resolve('babel-loader'),
 				options: {
 					/* This is a feature of babel-loader that will allow for faster rebuilds by
@@ -85,7 +82,7 @@ module.exports = {
 	},
 
 	devServer: {
-		contentBase: path.join(__dirname, 'dist'),
+		contentBase: path.join(process.cwd(), 'dist'),
 		compress: true,
 		host: 'localhost',
 		port: 8080,
