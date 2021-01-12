@@ -25,6 +25,10 @@
     "build": "npm run build:esm && npm run build:umd",
     "prepare": "npm run build"
   },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
