@@ -19,7 +19,7 @@
     "lint": "eslint src",
     "lint:fix": "eslint --fix src",
     "start": "webpack serve --config webpack.config.dev.js --inline --hot --progress --mode development",
-    "build": "rollup --config",
+    "build": "rm dist/*.* && rollup --config",
     "prepare": "npm run build"
   },
   "peerDependencies": {
