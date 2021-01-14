@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import classNames from 'classnames';
-import SHA1 from 'crypto-js/sha1'
+import classNames from 'classnames'
+import md5 from 'md5'
 
 import './likert.css'
 
@@ -26,9 +26,9 @@ function LikertScale({ question, responses, picked, id, className = '', ...restP
 		}
 	}
 
-	const sha = String(SHA1(question)).substring(0, 7)
+	const hash = String(md5(question)).substring(0, 7)
 	const radios = responses.map((response, idx) => {
-		const uniqueKey = `${sha}${idx}`
+		const uniqueKey = `${hash}${idx}`
 		return (
 			<label key={uniqueKey} htmlFor={uniqueKey} className='likertResponse'>
 				<span className='likertLine' />
@@ -36,7 +36,7 @@ function LikertScale({ question, responses, picked, id, className = '', ...restP
 				<input
 					type='radio'
 					value={response.value}
-					name={sha}
+					name={hash}
 					id={uniqueKey}
 					className='visuallyHidden'
 					onClick={onChosen}
@@ -55,7 +55,7 @@ function LikertScale({ question, responses, picked, id, className = '', ...restP
 		<fieldset
 			className={cn}
 			ref={ref}
-			id={id || sha}
+			id={id || hash}
 			{...restProps}
 		>
 			<legend>{question}</legend>

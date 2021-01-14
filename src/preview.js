@@ -1,3 +1,6 @@
+/* When testing locally, it is helpful to do an `npm link`. 
+/Users/craig/.nvm/versions/node/v10.14.1/lib/node_modules/react-likert-scale -> /Users/craig/Sites/react-likert-scale
+*/
 import React, { useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import Likert from './likert';
@@ -28,10 +31,10 @@ function PreviewComponent () {
 	return (
 		<Likert {...likertOptions}
 			ref={refLikert}
-			id='steckerlfisch'
 			// eslint-disable-next-line no-console
-			onClick={() => console.log('pretzels')}
-			className='donuts'
+			// onClick={() => console.log('pretzels')}
+			// id='steckerlfisch'
+			// className='donuts'
 		/>
 	)
 }

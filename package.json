@@ -3,7 +3,6 @@
   "version": "2.0.1",
   "description": "A React-based Likert Scale to collect data.",
   "main": "dist/likert.umd.js",
-  "module": "dist/likert.esm.js",
   "files": [
     "dist"
   ],
@@ -20,9 +19,7 @@
     "lint": "eslint src",
     "lint:fix": "eslint --fix src",
     "start": "webpack serve --config webpack.config.dev.js --inline --hot --progress --mode development",
-    "build:esm": "rollup -c -f esm -o dist/likert.esm.js",
-    "build:umd": "rollup -c -f umd -g react:React -o dist/likert.umd.js",
-    "build": "npm run build:esm && npm run build:umd",
+    "build": "rollup --config",
     "prepare": "npm run build"
   },
   "peerDependencies": {
@@ -56,6 +53,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "crypto-js": "^4.0.0"
+    "md5": "^2.3.0"
   }
 }
