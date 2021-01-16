@@ -1,10 +1,11 @@
+// Converts latest ES2015+ code to your target level of Javascript
 import babel from '@rollup/plugin-babel';
-import resolve from '@rollup/plugin-node-resolve';
 
 // Needed to import CSS and convert it to Javascript
 import postcss from 'rollup-plugin-postcss';
 
 // Needed to import the dependency packages (md5, classnames)
+import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 
 export default {
@@ -12,9 +13,8 @@ export default {
 	input: './src/likert.js',
 	output: [
 		{
-			name: 'react-likert-scale',
-			file: 'dist/likert.umd.js',
-			format: 'umd',
+			file: 'dist/likert.es.js',
+			format: 'es',
 			globals: {
 				react: 'React'
 			}

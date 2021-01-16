@@ -2,7 +2,15 @@
   "name": "react-likert-scale",
   "version": "2.0.2",
   "description": "A React-based Likert Scale to collect data.",
-  "main": "dist/likert.umd.js",
+  "comments": [
+    "`main` is traditionally a script/program, but in our case it is an ES module.",
+    "`type` tells the consumer that `main` is a ES module. This is fairly new and the",
+    "old method was to use the `module` key. It is here for backwards compatibility."
+  ],
+  "main": "./dist/likert.es.js",
+  "type": "module",
+  "exports": "./dist/likert.es.js",
+  "module": "./dist/likert.es.js",
   "files": [
     "dist"
   ],

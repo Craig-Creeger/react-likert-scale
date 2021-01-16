@@ -6,7 +6,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+[3.0.0] - 2021-01-15
+----------------------------
 
+### Changes
+
+Once again, this component is compatible with really old versions of React. It is written as a
+Class component.
+### Breaking Changes
+
+For most people, this will not be a breaking change. This component is only an ES2015 (ES6) module.
+Previously, it was exported as UMD.
+  
 [2.0.2] - 2021-01-13
 ----------------------------
 

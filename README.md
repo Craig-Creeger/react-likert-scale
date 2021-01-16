@@ -2,7 +2,7 @@ React Likert Scale
 ======================================
 
 React Likert Scale is a [React component](https://reactjs.org/docs) that renders a Likert Scale. It
-is fully responsive, very small size (about 8kb), and the styling can be customized by providing
+is fully responsive, very small size (about 9kb), and the styling can be customized by providing
 your own CSS styles.
 
 ![Screenshot of Likert component](./likert.png)
@@ -13,10 +13,6 @@ your own CSS styles.
 
 
 ## Usage
-
-React Likert Scale is a JavaScript library that can be used as an ES2015 Module or UMD.
-
-### ES2015 Module
 
 ```javascript
 import React from 'react';
@@ -53,7 +49,7 @@ This component has three `props`:
 
 ## FAQ
 
-### How do I change the colors or other styling?
+### How do I change colors or other CSS styling?
 
 The top-level DOM element that gets created by this component is `<fieldset class="likertScale">`.
 You can override any styles by prefixing your rule with `fieldset.likertScale`. For example, let’s
@@ -70,7 +66,7 @@ fieldset.likertScale .likertIndicator {
 
 This isn’t very common, but you may want to set focus on a Likert Scale after the page renders. This
 is done with React via `refs`. Either create your ref with `React.createRef()` or the `useRef()`
-hook. You can then pass your ref to the Likert component.
+hook. You can then pass your `ref` to the Likert component.
 
 ```javascript
 import React, { useRef } from 'react';
@@ -96,7 +92,7 @@ export default () => {
 }
 ```
 
-### Can I pass DOM attributes such as `id`, `class`, `disabled`, `data-*`, `onClick`, etc.?
+### Can I pass in DOM attributes such as `id`, `class`, `disabled`, `data-*`, `onClick`, etc.?
 
 Sure. They will be applied to the likert component’s top-level DOM element, `<fieldset>`. e.g.:
 
