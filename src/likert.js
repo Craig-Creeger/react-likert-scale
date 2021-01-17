@@ -1,6 +1,4 @@
 import React from 'react'
-import classNames from 'classnames'
-import md5 from 'md5'
 
 import './likert.css'
 
@@ -24,7 +22,7 @@ class LikertScale extends React.Component {
 	render () {
 		const { question, responses, id, className = '', likertRef, ...restProps } = this.props;
 
-		const hash = String(md5(question)).substring(0, 7)
+		const hash = hashFn(question)
 		const radios = responses.map((response, idx) => {
 			const uniqueKey = `${hash}${idx}`
 			return (
@@ -45,9 +43,9 @@ class LikertScale extends React.Component {
 			)
 		})
 
-		const cn = classNames('likertScale', className, {
-			isKeyboardUser: this.state.isKeyboardUser
-		})
+		let cn = 'likertScale'
+		cn += (className ? ` ${className}` : '')
+		cn += this.state.isKeyboardUser ? ' isKeyboardUser' : ''
 
 		return (
 			<fieldset
@@ -77,3 +75,15 @@ class LikertScale extends React.Component {
 }
 
 export default React.forwardRef((props, ref) => <LikertScale {...props} likertRef={ref} />)
+
+// This comes from https://github.com/darkskyapp/string-hash
+function hashFn(str) {
+	let hash = 5381
+	let i = str.length;
+
+	while(i) {
+		hash = (hash * 33) ^ str.charCodeAt(--i);
+	}
+
+	return hash >>> 0;
+}

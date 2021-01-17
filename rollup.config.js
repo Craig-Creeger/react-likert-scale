@@ -8,6 +8,9 @@ import postcss from 'rollup-plugin-postcss';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 
+// This will minify the output.
+import {terser} from 'rollup-plugin-terser';
+
 export default {
 	// core input options
 	input: './src/likert.js',
@@ -17,7 +20,8 @@ export default {
 			format: 'es',
 			globals: {
 				react: 'React'
-			}
+			},
+			plugins: [terser()]
 		}
 	],
 	external: ['react'],

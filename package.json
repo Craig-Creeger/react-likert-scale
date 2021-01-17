@@ -1,7 +1,7 @@
 {
   "name": "react-likert-scale",
   "version": "3.0.0",
-  "description": "A React-based Likert Scale to collect data.",
+  "description": "A React component that makes a Likert Scale for collecting data.",
   "comments": [
     "`main` is traditionally a script/program, but in our case it is an ES module.",
     "`type` tells the consumer that `main` is a ES module. This is fairly new and the",
@@ -22,7 +22,7 @@
     "Likert"
   ],
   "author": "Craig Creeger",
-  "license": "ISC",
+  "license": "CC0-1.0",
   "scripts": {
     "lint": "eslint src",
     "lint:fix": "eslint --fix src",
@@ -31,8 +31,8 @@
     "prepare": "npm run build"
   },
   "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -54,13 +54,11 @@
     "react-dom": "^17.0.1",
     "rollup": "^2.36.1",
     "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-terser": "^7.0.2",
     "style-loader": "^2.0.0",
     "webpack": "^5.12.3",
     "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.1"
   },
-  "dependencies": {
-    "classnames": "^2.2.6",
-    "md5": "^2.3.0"
-  }
+  "dependencies": {}
 }

@@ -1,15 +1,18 @@
 React Likert Scale
 ======================================
 
-React Likert Scale is a [React component](https://reactjs.org/docs) that renders a Likert Scale. It
-is fully responsive, very small size (about 9kb), and the styling can be customized by providing
-your own CSS styles.
+A React component that makes a Likert Scale for collecting data. It has the following features:
+
+  * it is fully responsive (looks great on laptops and phones)
+  * has a very small size (less than 4kb)
+  * has zero-dependencies
+  * the styling can be customized by providing your own CSS styles
 
 ![Screenshot of Likert component](./likert.png)
 
 ## Installation
 
-`npm install -P react-likert-scale`
+`npm i react-likert-scale`
 
 
 ## Usage
@@ -46,6 +49,7 @@ This component has three `props`:
   the calling application in the `picked` callback.
 * `picked` — (callback function) Optionally, you can provide a callback function that returns the
   value of the option that was clicked.
+
 
 ## FAQ
 
@@ -94,7 +98,7 @@ export default () => {
 
 ### Can I pass in DOM attributes such as `id`, `class`, `disabled`, `data-*`, `onClick`, etc.?
 
-Sure. They will be applied to the likert component’s top-level DOM element, `<fieldset>`. e.g.:
+Sure. They will be applied to the likert component’s top-level DOM element, `<fieldset>`.
 
 ```javascript
 <Likert {...likertOptions}
@@ -106,3 +110,8 @@ Sure. They will be applied to the likert component’s top-level DOM element, `<
   }}
 />
 ```
+
+### It doesn’t work. What now?
+
+Let me know. I really want to make this the best component possible.
+[Create an issue](https://github.com/Craig-Creeger/react-likert-scale/issues) on GitHub.
