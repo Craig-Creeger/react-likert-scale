@@ -1,16 +1,18 @@
 {
-  "plugins": ["react", "react-hooks"],
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "plugins": ["react", "react-hooks", "jest", "jest-dom"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jest/recommended",
+    "plugin:jest-dom/recommended",
+    "prettier"
+  ],
   "env": {
     "browser": true,
     "node": true
   },
   "rules": {
     "no-console": "warn",
-    "indent": ["error", "tab"],
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single"],
-    "jsx-quotes": ["error", "prefer-single"],
     "react/prop-types": "off"
   },
   "parser": "babel-eslint",

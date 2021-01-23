@@ -6,6 +6,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+[3.0.2] - 2021-01-22
+
+### Added
+
+  * Unit testing has been added to this repo.
+
+### Changed
+
+  * Updated all dependencies and fixed a warning with the Webpack dev server.
+
+### Deprecations
+
+  * The `picked()` prop has been renamed to `onChange()`.
+
 
 [3.0.1] - 2021-01-16
 ----------------------------
@@ -14,7 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
   * The code is now minified.
   * The two dependencies have been removed.
-  * The license has been switch to Creative Commons 0. You can use this sofware anywhere.
+  * The license has been switch to Creative Commons 0; you can use this sofware anywhere.
 
 
 [3.0.0] - 2021-01-15
@@ -27,9 +41,10 @@ Class component.
 
 ### Breaking Changes
 
-For most people, this will not be a breaking change. This component is only an ES2015 (ES6) module.
-Previously, it was exported as UMD.
-  
+For most people, this will not be a breaking change. This component is now only exported as an
+ES2015 (ES6) module. Previously, it was exported as UMD.
+
+
 [2.0.2] - 2021-01-13
 ----------------------------
 

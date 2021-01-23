@@ -1,7 +1,8 @@
 React Likert Scale
 ======================================
 
-A React component that makes a Likert Scale for collecting data. It has the following features:
+A React component that makes a Likert Scale for collecting data or to make a survey. It has the
+following features:
 
   * it is fully responsive (looks great on laptops and phones)
   * has a very small size (less than 4kb)
@@ -9,6 +10,7 @@ A React component that makes a Likert Scale for collecting data. It has the foll
   * the styling can be customized by providing your own CSS styles
 
 ![Screenshot of Likert component](./likert.png)
+
 
 ## Installation
 
@@ -31,7 +33,7 @@ export default () => {
       { value: 4, text: "Good" },
       { value: 5, text: "Excellent" }
     ],
-    picked: val => {
+    onChange: val => {
       console.log(val);
     }
   };
@@ -46,8 +48,8 @@ export default () => {
 This component has three `props`:
 * `question` — (string) This is the prompt that displays above the options.
 * `responses` — (array of objects) These are your options. The `value` key is what is returned to
-  the calling application in the `picked` callback.
-* `picked` — (callback function) Optionally, you can provide a callback function that returns the
+  the calling application in the `onChange` callback.
+* `onChange` — (callback function) Optionally, you can provide a callback function that returns the
   value of the option that was clicked.
 
 
@@ -113,5 +115,5 @@ Sure. They will be applied to the likert component’s top-level DOM element, `<
 
 ### It doesn’t work. What now?
 
-Let me know. I really want to make this the best component possible.
-[Create an issue](https://github.com/Craig-Creeger/react-likert-scale/issues) on GitHub.
+Let me know. [Create an issue](https://github.com/Craig-Creeger/react-likert-scale/issues) on
+GitHub.
