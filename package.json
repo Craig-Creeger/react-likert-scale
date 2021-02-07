@@ -1,6 +1,6 @@
 {
   "name": "react-likert-scale",
-  "version": "3.0.2",
+  "version": "4.0.0-0",
   "description": "A React component that makes a Likert Scale for collecting data.",
   "comments": [
     "`main` is traditionally a script/program, but in our case it is an ES module.",
