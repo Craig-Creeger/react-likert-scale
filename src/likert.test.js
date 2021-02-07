@@ -28,7 +28,7 @@ describe('likert', () => {
   test('clicking a radio will fire the callback and check the radio', () => {
     render(<Likert {...likertOptions} />);
     userEvent.click(screen.getByLabelText('Average'));
-    expect(likertOptions.onChange).toHaveBeenCalledWith('3');
+    expect(likertOptions.onChange).toHaveBeenCalledWith({"text": "Average", "value": 3});
     expect(screen.getByLabelText('Average')).toBeChecked();
   });
 

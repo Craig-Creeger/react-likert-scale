@@ -10,10 +10,10 @@ module.exports = {
 	// Context is the path for resolving `entry`, loaders, and other files in this config file.
 	context: path.join(process.cwd(), 'src'),
 
-	entry: 'preview.js',
+	entry: 'demo-index.js',
 	output: {
 		path: path.join(process.cwd(), 'dist'),
-		filename: 'preview.bundle.js',
+		filename: 'demo.bundle.js',
 	},
 	devtool: isDevBuild ? 'eval-source-map' : 'source-map',
 	resolve: {

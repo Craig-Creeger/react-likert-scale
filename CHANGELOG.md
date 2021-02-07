@@ -6,6 +6,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+[upcoming]
+
+### Added
+
+  * Prop `flexible` controls the spacing between likert options. Set to 0 or `false` to pack the
+    likert options as close together as possible. This is useful when you have several questions
+    that all have the same set of options. The default is true.
+
+### Changed
+
+  * The look-and-feel of the question and responses have been updated to look better when there are
+    several questions.
+
+### Breaking changes
+
+  * The `onChange` callback will now receive the `responses` object instead of just the response
+    `value`. This makes it easier to get the `text`.
+
+
 [3.0.2] - 2021-01-22
 
 ### Added

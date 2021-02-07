@@ -23,6 +23,7 @@ class LikertScale extends React.Component {
     const {
       question,
       responses,
+      flexible = true,
       id,
       className = '',
       likertRef,
@@ -32,6 +33,14 @@ class LikertScale extends React.Component {
     delete restProps.picked;
     delete restProps.onChange;
 
+    let flexGrow = null;
+    if (!flexible) {
+      flexGrow = { flexGrow: 0 }
+    }
+    if (typeof flexible === 'number' && parseInt(flexible) !== 4) {
+      flexGrow = { flexGrow: parseInt(flexible) }
+    }
+    
     const hash = hashFn(question);
     const radios = responses.map((response, idx) => {
       const uniqueKey = `${hash}${idx}`;
@@ -58,22 +67,29 @@ class LikertScale extends React.Component {
     cn += this.state.isKeyboardUser ? ' isKeyboardUser' : '';
 
     return (
-      <fieldset className={cn} ref={likertRef} id={id || hash} {...restProps}>
-        <legend>{question}</legend>
-        <div className='likertBand'>{radios}</div>
+      <fieldset
+        className={cn}
+        ref={likertRef}
+        id={id || hash}
+        {...restProps}
+        aria-labelledby={`legend-${hash}`}
+      >
+        {/* Normally the following line would be a <legend> tag but that does not play well with Flexbox. */}
+        <div id={`legend-${hash}`} className='likertLegend'>{question}</div>
+        <div className='likertBand' style={flexGrow}>{radios}</div>
       </fieldset>
     );
   }
 
   onChange = (evt) => {
     if (typeof this.props.onChange === 'function') {
-      this.props.onChange(evt.target.value);
+      this.props.onChange(this.getResponsesItem(evt.target.value));
     } else if (typeof this.props.picked === 'function') {
       // eslint-disable-next-line no-console
       console.warn(
         'Deprecation: The “picked” callback has been renamed; use “onChange” instead.'
       );
-      this.props.picked(evt.target.value);
+      this.props.picked(this.getResponsesItem(evt.target.value));
     }
   };
 
@@ -81,6 +97,11 @@ class LikertScale extends React.Component {
     if (evt.key === 'Tab') {
       this.setState({ isKeyboardUser: true });
     }
+  };
+
+  getResponsesItem = (value) => {
+    // TODO: Harden this code and write tests
+    return this.props.responses.find((item) => item.value == value);
   };
 }
 
