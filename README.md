@@ -31,7 +31,7 @@ export default () => {
     responses: [
       { value: 1, text: "Abysmal" },
       { value: 2, text: "Poor" },
-      { value: 3, text: "Average" },
+      { value: 3, text: "Average", checked: true },
       { value: 4, text: "Good" },
       { value: 5, text: "Excellent" }
     ],
@@ -48,9 +48,13 @@ export default () => {
 ### Likert Props
 
 This component has three `props`:
-* `question` — (string) This is the prompt that displays above the options.
+* `question` — (string) This is the prompt that displays above the options. It is optional.
+* `id` - (string) You are highly encouraged to always pass in a unique ID. This is used primarily
+  for accessibility reasons (to associate the label to the radio button). If you are using the
+  `question` prop and all you questions are unqiue then it is safe to omit the `id` prop.
 * `responses` — (array of objects) These are your options. The `value` key is what is returned to
-  the calling application in the `onChange` callback.
+  the calling application in the `onChange` callback. `text` is what’s shown on-screen. The optional
+  `checked` key will pre-check a radio button when set to `true`.
 * `onChange` — (callback function) Optionally, you can provide a callback function that returns the
   value of the option that was clicked.
 

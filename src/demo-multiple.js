@@ -6,13 +6,12 @@ export default function DemoMultiple() {
 
   return (
     <>
+      <h1>Auto-layout</h1>
       <Likert
         question='How was your service today?'
         responses={[
           { value: 1, text: 'Poor' },
           { value: 2, text: '' },
-          { value: 3, text: '' },
-          { value: 4, text: '' },
           { value: 5, text: '' },
           { value: 6, text: '' },
           { value: 7, text: 'Excellent' },
@@ -30,17 +29,14 @@ export default function DemoMultiple() {
         ]}
       />
       <Likert
-        question='Taste?'
+        question='How did your meal taste?'
         responses={[
-          { value: 1, text: 'Complete garbage'},
-          { value: 2, text: 'Was it food?'},
-          { value: 3, text: 'No flavor'},
-          { value: 4, text: 'Meh'},
-          { value: 5, text: 'OK'},
-          { value: 6, text: 'Not too shabby'},
-          { value: 7, text: 'Amazing'},
-          { value: 8, text: 'Best. Meal. Ever.'},
-        ]}
+          { value: 3, text: 'Horrible' },
+          { value: 4, text: 'Meh' },
+          { value: 5, text: 'OK' },
+          { value: 6, text: 'Pretty good' },
+          { value: 7, text: 'Amazing' },
+      ]}
       />
       <Likert
         question='How likely are you to return again?'
@@ -53,7 +49,7 @@ export default function DemoMultiple() {
       />
       <Likert
         flexible={false}
-        question='Short question?'
+        question='How happy are you?'
         responses={[
           { value: 5, text: '😡' },
           { value: 10, text: '☹️' },
@@ -61,26 +57,7 @@ export default function DemoMultiple() {
           { value: 20, text: '😃' },
         ]}
       />
-      <Likert
-        flexible={false}
-        question='Medium length question text?'
-        responses={[
-          { value: 5, text: '😡' },
-          { value: 10, text: '☹️' },
-          { value: 15, text: '😐' },
-          { value: 20, text: '😃' },
-        ]}
-      />
-      <Likert
-        flexible={false}
-        question='Long question text to demonstrate the layout effect?'
-        responses={[
-          { value: 5, text: '😡' },
-          { value: 10, text: '☹️' },
-          { value: 15, text: '😐' },
-          { value: 20, text: '😃' },
-        ]}
-      />
+     
     </>
   );
 }

@@ -5,11 +5,33 @@ import './likert.css';
 // Using a Class component because it is easier to test when using `npm link`, which has problems
 // with hooks.
 class LikertScale extends React.Component {
+  /**
+   * @param {object} props
+   * @param {object[]} props.responses A list of possible responses to the question.
+   * @param {string} props.id A unique ID. This is used primarily for accessibility reasons.
+   * @param {string} [props.question] The question that this likert scale is for. Leave blank if you want to format the question yourself.
+   * @param {boolean|number} [props.flexible] Controls the spacing of the radio buttons.
+   * @param {string} [props.className]
+   * @param {React.Ref} [props.likertRef]
+   */
   constructor(props) {
     super(props);
+
+    let checkedIndex;
+    if (Array.isArray(props.responses)) {
+      checkedIndex = props.responses.findIndex((item) => item.checked);
+    }
     this.state = {
       isKeyboardUser: false,
+      checkedIndex,
     };
+    if (props.id) {
+      this.id = props.id;
+    } else if (props.question) {
+      this.id = hashFn(props.question);
+    } else {
+      this.id = Date.now();
+    }
   }
 
   componentDidMount() {
@@ -21,10 +43,9 @@ class LikertScale extends React.Component {
 
   render() {
     const {
-      question,
       responses,
+      question,
       flexible = true,
-      id,
       className = '',
       likertRef,
       ...restProps
@@ -35,15 +56,14 @@ class LikertScale extends React.Component {
 
     let flexGrow = null;
     if (!flexible) {
-      flexGrow = { flexGrow: 0 }
+      flexGrow = { flexGrow: 0 };
     }
     if (typeof flexible === 'number' && parseInt(flexible) !== 4) {
-      flexGrow = { flexGrow: parseInt(flexible) }
+      flexGrow = { flexGrow: parseInt(flexible) };
     }
-    
-    const hash = hashFn(question);
+
     const radios = responses.map((response, idx) => {
-      const uniqueKey = `${hash}${idx}`;
+      const uniqueKey = `${this.id}${idx}`;
       return (
         <label key={uniqueKey} htmlFor={uniqueKey} className='likertResponse'>
           <span className='likertLine' />
@@ -51,10 +71,12 @@ class LikertScale extends React.Component {
           <input
             type='radio'
             value={response.value}
-            name={hash}
+            name={this.id}
             id={uniqueKey}
             className='visuallyHidden'
-            onClick={this.onChange}
+            data-index={idx}
+            onChange={this.onChange}
+            checked={this.state.checkedIndex === idx}
           />
           <span className='likertIndicator' />
           <span className='likertText'>{response.text}</span>
@@ -70,18 +92,25 @@ class LikertScale extends React.Component {
       <fieldset
         className={cn}
         ref={likertRef}
-        id={id || hash}
+        id={this.id}
         {...restProps}
-        aria-labelledby={`legend-${hash}`}
+        aria-labelledby={`legend-${this.id}`}
       >
         {/* Normally the following line would be a <legend> tag but that does not play well with Flexbox. */}
-        <div id={`legend-${hash}`} className='likertLegend'>{question}</div>
-        <div className='likertBand' style={flexGrow}>{radios}</div>
+        {question && (
+          <div id={`legend-${this.id}`} className='likertLegend'>
+            {question}
+          </div>
+        )}
+        <div className='likertBand' style={flexGrow}>
+          {radios}
+        </div>
       </fieldset>
     );
   }
 
   onChange = (evt) => {
+    this.setState({ checkedIndex: parseInt(evt.target.getAttribute('data-index')) });
     if (typeof this.props.onChange === 'function') {
       this.props.onChange(this.getResponsesItem(evt.target.value));
     } else if (typeof this.props.picked === 'function') {
