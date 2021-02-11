@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import DemoSingle from './demo-single.js';
+import DemoInteraction from './demo-interaction.js';
 import DemoMultiple from './demo-multiple.js';
 import DemoGrid from './demo-grid.js';
 
 function PreviewComponent() {
-  const [version, setVersion] = useState('single');
+  const [version, setVersion] = useState('interaction');
 
   let scenario = null;
 
   switch (version) {
-    case 'single':
-      scenario = <DemoSingle />;
+    case 'interaction':
+      scenario = <DemoInteraction />;
       break;
     case 'multiple':
       scenario = <DemoMultiple />;
@@ -24,7 +24,7 @@ function PreviewComponent() {
   return (
     <>
       <p>
-        <button onClick={() => setVersion('single')}>Interaction</button>{' '}
+        <button onClick={() => setVersion('interaction')}>Interaction</button>{' '}
         <button onClick={() => setVersion('multiple')}>Auto-layout</button>{' '}
         <button onClick={() => setVersion('grid')}>Grid layout</button>
       </p>

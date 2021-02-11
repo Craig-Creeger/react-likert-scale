@@ -2,8 +2,6 @@ import React from 'react';
 import Likert from './likert.js';
 
 export default function DemoGrid() {
-  // const [chosen, setChosen] = useState({});
-
   return (
     <>
       <style>{`

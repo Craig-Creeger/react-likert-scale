@@ -2,8 +2,6 @@ import React from 'react';
 import Likert from './likert.js';
 
 export default function DemoMultiple() {
-  // const [chosen, setChosen] = useState({});
-
   return (
     <>
       <h1>Auto-layout</h1>

@@ -11,8 +11,7 @@ following features:
 
 ![Screenshot of Likert component](./likert.png)
 
-A live [demo is on CodePen](https://codepen.io/craig-creeger/pen/WNGaJxe).
-
+> A live [demo is on CodePen](https://codepen.io/craig-creeger/full/WNGaJxe).
 
 ## Installation
 
