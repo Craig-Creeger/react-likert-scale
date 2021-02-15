@@ -9,9 +9,10 @@ following features:
   * has zero-dependencies
   * the styling can be customized by providing your own CSS styles
 
+## See the [demo](https://codepen.io/craig-creeger/full/WNGaJxe).
+
 ![Screenshot of Likert component](./likert.png)
 
-> A live [demo is on CodePen](https://codepen.io/craig-creeger/full/WNGaJxe).
 
 ## Installation
 
@@ -46,16 +47,41 @@ export default () => {
 
 ### Likert Props
 
-This component has three `props`:
-* `question` — (string) This is the prompt that displays above the options. It is optional.
-* `id` - (string) You are highly encouraged to always pass in a unique ID. This is used primarily
-  for accessibility reasons (to associate the label to the radio button). If you are using the
-  `question` prop and all you questions are unqiue then it is safe to omit the `id` prop.
-* `responses` — (array of objects) These are your options. The `value` key is what is returned to
-  the calling application in the `onChange` callback. `text` is what’s shown on-screen. The optional
-  `checked` key will pre-check a radio button when set to `true`.
+#### Required `props`
+
+* `responses` — (array of objects) These are the radio button options. The `value` key is what is
+  returned to the calling application in the `onChange` callback. `text` is what’s shown on-screen.
+  The optional `checked` key will pre-check a radio button when set to `true`.
+
+#### Semi-required `props`
+
+Technically, these are all optional, however you need to pass in an `onChange` prop if you want to be notified about which option a user chose.
+
 * `onChange` — (callback function) Optionally, you can provide a callback function that returns the
   value of the option that was clicked.
+
+For accessibility reasons, each likert scale on your page needs a unique identifier. If you are
+passing in a `question` prop and each question is unique, then that text will be used to generate a
+unique identifier. On the other hand, if you are not using `question` or the question text is
+duplicated across multiple likert scales, you will need to pass in an `id` prop.
+
+* `question` — (string) This is the prompt that displays above the options. The easiest way to
+  create these likert scales is by passing in your question text in this prop, however if you want a
+  more custom layout then you can omit this prop. You can see a [grid layout example on
+  Codepen](https://codepen.io/craig-creeger/pen/mdOOdjK) that uses this technique.
+* `id` - (string) It is your responsibility to pass in a unique ID. If you are using the `question`
+  prop it is safe to omit this `id` prop.
+
+#### Optional `props`
+
+* `flexible` (boolean|integer) This controls the type of layout. When `flexible` is set to `true`,
+  which is the default setting, the radio buttons will stretch to fill available space. The question
+  text will get positioned to the left of the radio buttons when there is plenty of space, otherwise
+  it will appear above the radio buttons. Set `flexible` to `false` if you want the radio buttons to
+  use a minimum amount of space at all times. _Passing in an integer is an advanced use-case and frankly isn’t of much value. See the source code for more info. The integer is used as a `flex-grow` value._
+* `className` (string) You can use this to apply custom CSS. You class name will be put on a `<fieldset>` element, which is the top-level element of this component.
+* `ref` (React ref) For advanced use-cases, you may need a reference to the DOM element itself. Pass in a [React ref](https://reactjs.org/docs/refs-and-the-dom.html).
+* DOM attributes such as `id`, `disabled`, `data-*`, `onClick`, etc. These will get applied to a `<fieldset>` element.
 
 
 ## FAQ
@@ -72,6 +98,8 @@ fieldset.likertScale .likertIndicator {
   background-color: lightGray;
 }
 ```
+
+You can pass in a `className` prop to the Likert component that can also be used for styling. Refer to the [custom styling example on Codepen](https://codepen.io/craig-creeger/pen/WNGaJxe).
 
 ### I need access to the DOM element created by React. How is that done?
 

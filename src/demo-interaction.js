@@ -15,7 +15,19 @@ const likertOptions = {
 
 export default function DemoInteraction() {
   const refLikert = useRef(null);
-  const [chosen, setChosen] = useState({});
+  const [chosen, setChosen] = useState(null);
+
+  const onChange = (chosen) => {
+    const content = (
+      <span>
+        You chose:{" "}
+        <strong>
+          {chosen?.value}—{chosen?.text}
+        </strong>
+      </span>
+    );
+    setChosen(content);
+  };
 
   const getAlertMessage = () => {
     const rect = refLikert.current.getBoundingClientRect();
@@ -34,17 +46,12 @@ and ${parseInt(rect.height)}px tall.`;
       </p>
       <Likert
         {...likertOptions}
-        onChange={setChosen}
+        onChange={onChange}
         ref={refLikert}
         className='withBorder'
       />
-      <p>
-        You chose:{' '}
-        <strong>
-          {chosen.value}—{chosen.text}
-        </strong>
-        <br />
-        <em>This demonstrates how you can get the value chosen by the user.</em>
+      <p style={{ textAlign: 'center' }}>
+          {chosen}
       </p>
       <p><button onClick={() => alert(getAlertMessage())}>DOM Access via a React Ref</button></p>
       <style>{`
@@ -52,6 +59,7 @@ and ${parseInt(rect.height)}px tall.`;
           padding: 1em;
           border: thin solid darkgreen;
           border-radius: 1em;
+          font-family: Verdana, Arial, sans-serif;
         }
       `}</style>
     </>
