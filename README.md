@@ -5,7 +5,7 @@ A React component that makes a Likert Scale for collecting data or to make a sur
 following features:
 
   * it is fully responsive (looks great on laptops and phones)
-  * has a very small size (less than 4kb)
+  * has a very small size (about 5kb)
   * has zero-dependencies
   * the styling can be customized by providing your own CSS styles
 
