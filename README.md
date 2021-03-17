@@ -74,13 +74,20 @@ duplicated across multiple likert scales, you will need to pass in an `id` prop.
 
 #### Optional `props`
 
+* `layout` (string) This controls the position of the Question text. Valid values are `auto` (the
+  default) and `stacked`. Auto-layout will position the question text and likert scale on the same
+  line when there is enought horizontal space. If the screen is too narrow the question will appear
+  above the likert scale. Set `layout='stacked'` if you always want the question to appear above the
+  likert scale.
 * `flexible` (boolean|integer) This controls the type of layout. When `flexible` is set to `true`,
   which is the default setting, the radio buttons will stretch to fill available space. The question
   text will get positioned to the left of the radio buttons when there is plenty of space, otherwise
   it will appear above the radio buttons. Set `flexible` to `false` if you want the radio buttons to
   use a minimum amount of space at all times. _Passing in an integer is an advanced use-case and frankly isn’t of much value. See the source code for more info. The integer is used as a `flex-grow` value._
-* `className` (string) You can use this to apply custom CSS. You class name will be put on a `<fieldset>` element, which is the top-level element of this component.
-* `ref` (React ref) For advanced use-cases, you may need a reference to the DOM element itself. Pass in a [React ref](https://reactjs.org/docs/refs-and-the-dom.html).
+* `className` (string) You can use this to apply custom CSS. You class name will be put on a
+  `<fieldset>` element, which is the top-level element of this component.
+* `ref` (React ref) For advanced use-cases, you may need a reference to the DOM element itself. Pass
+  in a [React ref](https://reactjs.org/docs/refs-and-the-dom.html).
 * DOM attributes such as `id`, `disabled`, `data-*`, `onClick`, etc. These will get applied to a `<fieldset>` element.
 
 

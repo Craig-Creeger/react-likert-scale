@@ -10,6 +10,7 @@ class LikertScale extends React.Component {
    * @param {object[]} props.responses A list of possible responses to the question.
    * @param {string} props.id A unique ID. This is used primarily for accessibility reasons.
    * @param {string} [props.question] The question that this likert scale is for. Leave blank if you want to format the question yourself.
+   * @param {string} [props.layout] Controls position of the question text
    * @param {boolean|number} [props.flexible] Controls the spacing of the radio buttons.
    * @param {string} [props.className]
    * @param {React.Ref} [props.likertRef]
@@ -45,6 +46,7 @@ class LikertScale extends React.Component {
     const {
       responses,
       question,
+      layout = 'auto',
       flexible = true,
       className = '',
       likertRef,
@@ -87,6 +89,7 @@ class LikertScale extends React.Component {
     let cn = 'likertScale';
     cn += className ? ` ${className}` : '';
     cn += this.state.isKeyboardUser ? ' isKeyboardUser' : '';
+    cn += layout === 'stacked' ? ' layout--stacked' : '';
 
     return (
       <fieldset

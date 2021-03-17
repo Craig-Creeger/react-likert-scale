@@ -6,15 +6,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-
-[upcoming]
+[4.1.0]
 ----------------------------
 
-  * Example formatting in a grid.
+### Added
+  * Add prop `layout` to control position of the Question text. Valid values are `auto` (default)
+    and `stacked`.
+
+[4.0.1]
+----------------------------
 
 ### Added
-
   * You can now have a radio button pre-checked on first render.
+  * Documentation: example formatting in a grid.
 
 ### Changed
   * The `question` prop is now optional so that you can format as you wish.
@@ -25,18 +29,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ----------------------------
 
 ### Added
-
   * Prop `flexible` controls the spacing between likert options. Set to 0 or `false` to pack the
     likert options as close together as possible. This is useful when you have several questions
     that all have the same set of options. The default is true.
 
 ### Changed
-
   * The look-and-feel of the question and responses have been updated to look better when there are
     several questions.
 
 ### Breaking changes
-
   * The `onChange` callback will now receive the `responses` object instead of just the response
     `value`. This makes it easier to get the `text`.
 
@@ -45,15 +46,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ----------------------------
 
 ### Added
-
   * Unit testing has been added to this repo.
 
 ### Changed
-
   * Updated all dependencies and fixed a warning with the Webpack dev server.
 
 ### Deprecations
-
   * The `picked()` prop has been renamed to `onChange()`.
 
 
@@ -61,7 +59,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ----------------------------
 
 ### Changes
-
   * The code is now minified.
   * The two dependencies have been removed.
   * The license has been switch to Creative Commons 0; you can use this sofware anywhere.

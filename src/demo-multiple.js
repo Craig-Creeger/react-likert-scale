@@ -34,7 +34,7 @@ export default function DemoMultiple() {
           { value: 5, text: 'OK' },
           { value: 6, text: 'Pretty good' },
           { value: 7, text: 'Amazing' },
-      ]}
+        ]}
       />
       <Likert
         question='How likely are you to return again?'
@@ -45,6 +45,7 @@ export default function DemoMultiple() {
           { value: 20, text: 'Definitely' },
         ]}
       />
+      <h2>Minimum sized likert scale layout</h2>
       <Likert
         flexible={false}
         question='How happy are you?'
@@ -55,7 +56,54 @@ export default function DemoMultiple() {
           { value: 20, text: '😃' },
         ]}
       />
-     
+      <Likert
+        flexible={false}
+        question='What is your mood?'
+        responses={[
+          { value: 5, text: '😡' },
+          { value: 10, text: '☹️' },
+          { value: 15, text: '😐' },
+          { value: 20, text: '😃' },
+        ]}
+      />
+      <h2>Stacked layout</h2>
+      <Likert
+        id='stacked1'
+        question='How was your service today?'
+        responses={[
+          { value: 1, text: 'Poor' },
+          { value: 2, text: '' },
+          { value: 5, text: '' },
+          { value: 6, text: '' },
+          { value: 7, text: 'Excellent' },
+        ]}
+        layout='stacked'
+      />
+      <Likert
+        id='stacked2'
+        question='How many minutes did it take for your food arrive?'
+        responses={[
+          { value: 5, text: '5' },
+          { value: 10, text: '10' },
+          { value: 15, text: '15' },
+          { value: 20, text: '20' },
+          { value: 25, text: '25' },
+          { value: 30, text: '30+' },
+        ]}
+        layout='stacked'
+      />
+      <Likert
+        id='stacked3'
+        question='How did your meal taste?'
+        responses={[
+          { value: 3, text: 'Horrible' },
+          { value: 4, text: 'Meh' },
+          { value: 5, text: 'OK' },
+          { value: 6, text: 'Pretty good' },
+          { value: 7, text: 'Amazing' },
+        ]}
+        layout='stacked'
+      />
     </>
   );
 }

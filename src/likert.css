@@ -7,6 +7,10 @@
   align-items: center;
   justify-content: space-between;
 }
+.likertScale.layout--stacked {
+  flex-direction: column;
+  align-items: flex-start;
+}
 .likertLegend {
   flex: 1 1 auto;
 }
@@ -17,6 +21,9 @@
 
   display: flex;
   padding-top: 0.6em;
+}
+.layout--stacked .likertBand {
+  align-self: stretch;
 }
 .likertResponse {
   flex-grow: 1;
